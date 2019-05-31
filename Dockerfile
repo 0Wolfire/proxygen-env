@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -6,16 +6,12 @@ RUN apt-get update && \
         apt-utils \
         git \
         bc \
-        libdouble-conversion1v5 \
-        hardening-wrapper \
         sudo
-
-ENV DEB_BUILD_HARDENING=1
 
 # Clone the ProxyGen library
 RUN git clone https://github.com/facebook/proxygen.git && \
     cd proxygen && \
-    git checkout d3f694c582b0beea41f1e97e8e33b8a8c4968a81
+    git checkout d0a0df6fcf2d6608494cf823ee3a32719f7eff9f
 
 WORKDIR /proxygen/proxygen
 
